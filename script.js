@@ -1,6 +1,5 @@
 'use strict';
 
-/* ---------- Data soal ---------- */
 const CATEGORIES = {
   js:  { label: 'JavaScript', desc: 'Variabel, tipe data, array, fungsi' },
   dom: { label: 'DOM & Browser', desc: 'Elemen, event, penyimpanan, keamanan' },
@@ -27,7 +26,7 @@ const TIME_PER_QUESTION = 15;
 const STORAGE_KEY = 'quizHighScore';
 const THEME_KEY = 'quizTheme';
 
-/* ---------- Utilitas ---------- */
+
 const $ = (sel) => document.querySelector(sel);
 const shuffle = (arr) => {
   const a = [...arr];
@@ -38,7 +37,7 @@ const shuffle = (arr) => {
   return a;
 };
 
-// localStorage dengan fallback memori (jika storage diblokir)
+
 const memory = {};
 const store = {
   get(key) {
@@ -53,7 +52,7 @@ const loadBest = () => {
   try { return JSON.parse(store.get(STORAGE_KEY)); } catch { return null; }
 };
 
-/* ---------- State ---------- */
+
 const state = {
   category: 'all',
   questions: [],
@@ -64,7 +63,7 @@ const state = {
   timerId: null
 };
 
-/* ---------- Navigasi antar tampilan (SPA) ---------- */
+
 const views = { start: $('#view-start'), quiz: $('#view-quiz'), result: $('#view-result') };
 
 function showView(name) {
@@ -74,7 +73,7 @@ function showView(name) {
   views[name].classList.add('enter');
 }
 
-/* ---------- Render halaman mulai ---------- */
+
 function renderStart() {
   const cats = $('#cats');
   cats.replaceChildren();
@@ -269,6 +268,5 @@ $('#app').addEventListener('click', (event) => {
   }
 });
 
-/* ---------- Init ---------- */
 applyTheme(store.get(THEME_KEY) === 'dark' ? 'dark' : 'light');
 renderStart();
