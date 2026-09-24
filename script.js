@@ -98,7 +98,7 @@ function renderStart() {
   showView('start');
 }
 
-/* ---------- Quiz ---------- */
+/* 
 function startQuiz(category) {
   const pool = category === 'all' ? QUESTIONS : QUESTIONS.filter((q) => q.cat === category);
   state.category = category;
@@ -216,7 +216,7 @@ function nextStep() {
   }
 }
 
-/* ---------- Hasil ---------- */
+
 function showResult() {
   stopTimer();
   const total = state.questions.length;
@@ -241,7 +241,7 @@ function showResult() {
   showView('result');
 }
 
-/* ---------- Tema ---------- */
+
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   $('#themeBtn').textContent = theme === 'dark' ? 'Mode terang' : 'Mode gelap';
@@ -253,7 +253,7 @@ function toggleTheme() {
   store.set(THEME_KEY, next);
 }
 
-/* ---------- Event delegation: satu listener untuk seluruh aplikasi ---------- */
+
 $('#app').addEventListener('click', (event) => {
   const target = event.target.closest('[data-action]');
   if (!target) return;
