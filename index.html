@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interactive Quiz App — Tugas Rutin 6</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div class="topbar">
+    <span class="brand">Quiz Web Dasar</span>
+    <button class="icon-btn" data-action="theme" id="themeBtn" type="button">Mode gelap</button>
+  </div>
+
+  <!-- Halaman mulai -->
+  <section id="view-start" class="card">
+    <h1>Uji pemahaman JavaScript-mu</h1>
+    <p class="lead">5 soal pilihan ganda per ronde, 15 detik tiap soal. Pilih kategori untuk mulai.</p>
+    <div class="cats" id="cats"></div>
+    <div class="best" id="bestScore"></div>
+  </section>
+
+  <!-- Halaman quiz -->
+  <section id="view-quiz" class="card" hidden>
+    <div class="meta">
+      <span id="counter"></span>
+      <span class="timer" id="timer"></span>
+    </div>
+    <div class="bar" aria-hidden="true"><div id="progress"></div></div>
+    <div class="bar time" aria-hidden="true"><div id="timeBar"></div></div>
+    <div id="questionBox">
+      <h2 id="question"></h2>
+      <ul id="options"></ul>
+      <p class="feedback" id="feedback" aria-live="polite"></p>
+      <button class="btn" data-action="next" id="nextBtn" type="button" hidden></button>
+    </div>
+  </section>
+
+  <!-- Halaman hasil -->
+  <section id="view-result" class="card" hidden>
+    <p class="lead" id="resultLabel"></p>
+    <div class="score" id="finalScore"></div>
+    <p id="resultDetail"></p>
+    <span class="record" id="recordBadge" hidden>Rekor baru!</span>
+    <div class="actions">
+      <button class="btn" data-action="restart" type="button">Ulangi quiz</button>
+      <button class="btn ghost" data-action="home" type="button">Ganti kategori</button>
+    </div>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
